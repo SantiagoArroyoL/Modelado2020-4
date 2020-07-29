@@ -1,6 +1,6 @@
 package ciencias.unam.modelado;
 
-public class Mexicano implements Observador{
+public class Mexicano extends Usuario {
 
     private String nombre;
 

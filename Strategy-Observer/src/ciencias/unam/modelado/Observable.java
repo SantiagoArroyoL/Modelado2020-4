@@ -1,6 +1,6 @@
 package ciencias.unam.modelado;
 
-public interface Sujeto {
+public interface Observable {
 
     public void registraObservador(Observador o);
     public void eliminaObservador(Observador o);
