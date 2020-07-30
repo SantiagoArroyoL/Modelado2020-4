@@ -2,15 +2,15 @@ package ciencias.unam.modelado;
 
 import java.util.LinkedList;
 
-public class Chat implements Observable {
+public class Chat implements IObservable {
 
-    private LinkedList<Observador> registro;
+    private LinkedList<Usuario> observadores;
 
     /**
      * Constructor del Chat que inicializa el registro
      */
     public Chat() {
-        registro = new LinkedList<>();
+        observadores = new LinkedList<>();
     }
 
     /**
@@ -19,8 +19,9 @@ public class Chat implements Observable {
      * @param observador El nuevo observador a ser registrado
      */
     @Override
-    public void registraObservador(Observador observador) {
-
+    public void registraObservador(Usuario usuario) {
+        observadores.add(usuario);
+        notificarLlegadaUsuario(usuario.getNombre());
     }
 
     /**
@@ -29,56 +30,46 @@ public class Chat implements Observable {
      * @param observador El observador a eliminar del registro
      */
     @Override
-    public void eliminaObservador(Observador observador) {
-
+    public void eliminaObservador(Usuario usuario) {
+        observadores.remove(usuario);
+        notificarSalidaUsuario(usuario.getNombre());
     }
 
     /**
      * Método que notifica a los observadores de un mensaje mandado
      *
-     * @param usuario El nombre del usuario que mandó el mensaje
+     * @param remitente El nombre del usuario que mandó el mensaje
      * @param mensaje El mensaje mandado por el usuario
      */
     @Override
-    public void notificarMensaje(String usuario, String mensaje) {
-
+    public void notificarMensaje(String remitente, String mensaje) {
+        for (Usuario o : observadores) {
+            o.notificaMensaje(remitente, mensaje);
+        }
     }
 
     /**
      * Método que notifica al resto de observadores la llegada de un nuevo usuario al chat
      *
-     * @param usuario El nombre del nuevo usuario
+     * @param remitente El nombre del nuevo usuario
      */
     @Override
-    public void notificarLlegadaUsuario(String usuario) {
-        for (Observador o : registro) {
-            o.notificaAgregado(usuario);
+    public void notificarLlegadaUsuario(String remitente) {
+        for (Usuario o : observadores) {
+            o.notificaAgregado(remitente);
         }
     }
 
     /**
      * Método que notifica al resto de observadores la salida de un usuario del chat
      *
-     * @param usuario EL nombre del usuario a salir
+     * @param remitente EL nombre del usuario a salir
      */
     @Override
-    public void notificarSalidaUsuario(String usuario) {
-        for (Observador o : registro) {
-            o.notificaEliminado(usuario);
+    public void notificarSalidaUsuario(String remitente) {
+        for (Usuario o : observadores) {
+            o.notificaEliminado(remitente);
         }
     }
 
-    public void agregarUsuario(Usuario usuario) {
-        registro.add(usuario);
-        notificarLlegadaUsuario(usuario.nombre);
-    }
-
-    public void enviarMensaje(String nombre, String mensaje) {
-        // De todas maneras hay que hacerlo como dije según el diagrama XD
-    }
-
-    public void eliminarUsuario(Usuario usuario) {
-        registro.remove(usuario);
-        notificarSalidaUsuario(usuario.nombre);
-    }
 }
