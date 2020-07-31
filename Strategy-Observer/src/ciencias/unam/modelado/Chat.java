@@ -2,9 +2,20 @@ package ciencias.unam.modelado;
 
 import java.util.LinkedList;
 
+/**
+ *
+ * Clase encargada de llevar el registro de los observadores
+ *  y de notificarles a todos cuando uno de ellos manda mensaje, sale o entra del chat
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see IObservable
+ * @since 30-07-2020
+ */
 public class Chat implements IObservable {
 
-    private LinkedList<Usuario> observadores;
+    /* Registro de usuarios */
+    private LinkedList<Observador> observadores;
 
     /**
      * Constructor del Chat que inicializa el registro
@@ -19,7 +30,7 @@ public class Chat implements IObservable {
      * @param observador El nuevo observador a ser registrado
      */
     @Override
-    public void registraObservador(Usuario usuario) {
+    public void registraObservador(Observador usuario) {
         observadores.add(usuario);
         notificarLlegadaUsuario(usuario.getNombre());
     }
@@ -28,9 +39,10 @@ public class Chat implements IObservable {
      * Método encargado de eliminar un observador de la lista y notificar al resto de su salida
      *
      * @param observador El observador a eliminar del registro
+     * @param usuario
      */
     @Override
-    public void eliminaObservador(Usuario usuario) {
+    public void eliminaObservador(Observador usuario) {
         observadores.remove(usuario);
         notificarSalidaUsuario(usuario.getNombre());
     }
@@ -43,7 +55,7 @@ public class Chat implements IObservable {
      */
     @Override
     public void notificarMensaje(String remitente, String mensaje) {
-        for (Usuario o : observadores) {
+        for (Observador o : observadores) {
             o.notificaMensaje(remitente, mensaje);
         }
     }
@@ -55,7 +67,7 @@ public class Chat implements IObservable {
      */
     @Override
     public void notificarLlegadaUsuario(String remitente) {
-        for (Usuario o : observadores) {
+        for (Observador o : observadores) {
             o.notificaAgregado(remitente);
         }
     }
@@ -63,11 +75,11 @@ public class Chat implements IObservable {
     /**
      * Método que notifica al resto de observadores la salida de un usuario del chat
      *
-     * @param remitente EL nombre del usuario a salir
+     * @param remitente El nombre del usuario a salir
      */
     @Override
     public void notificarSalidaUsuario(String remitente) {
-        for (Usuario o : observadores) {
+        for (Observador o : observadores) {
             o.notificaEliminado(remitente);
         }
     }
