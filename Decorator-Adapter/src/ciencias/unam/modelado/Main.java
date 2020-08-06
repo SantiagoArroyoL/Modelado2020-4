@@ -152,6 +152,7 @@ public class Main {
         do {
             try {
                 opcion = new Scanner(System.in).nextInt();
+                validacion = true;
             } catch (InputMismatchException ime) {
                 System.out.println("Opción invalida!\nIntroduzca sólo números!");
                 continue;
