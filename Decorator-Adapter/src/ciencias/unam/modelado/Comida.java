@@ -2,7 +2,7 @@ package ciencias.unam.modelado;
 
 public interface Comida {
 
-    public String getTicket();
+    public String getDescripcion();
 
-    public float getCosto();
+    public double getCosto();
 }
