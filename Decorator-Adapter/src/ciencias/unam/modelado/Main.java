@@ -3,8 +3,9 @@ package ciencias.unam.modelado;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import ciencias.unam.modelado.pizzasDonCangrejo.Pizza;
 import ciencias.unam.modelado.pizzasDonCangrejo.tiposPizzas.*;
+import ciencias.unam.modelado.waysub.baguette.*;
+import ciencias.unam.modelado.waysub.ingredientes.*;
 
 public class Main {
 
@@ -40,13 +41,76 @@ public class Main {
 
     private static Comida menuWaySub() {
         System.out.println("-----------------------------------------------------");
-        System.out.println("\nBienvenido a WaySub!");
-        System.out.println("1. La primera opción");
-        System.out.println("2. La segunda opción");
-        System.out.println("3. La tercera opción");
-        System.out.println("-----------------------------------------------------");
-        System.out.print("Seleccionar una opción  --> ");
-        return new AdaptadorPizza(0);
+        System.out.println("\nBienvenido a WaySub!, ¿Que clase de Baguette vas a querer hoy?");
+        int tipo_pan = lee(1, 3);
+        Comida comida = null;
+        System.out.println("1. Con Ajo");
+        System.out.println("2. Blanco");
+        System.out.println("3. Integral");
+        switch (tipo_pan) {
+            case 1:
+                comida = new Ajo();
+                break;
+            case 2:
+                comida = new Blanco();
+                break;
+            case 3:
+                comida = new Integral();
+                break;
+
+            default:
+                throw new IllegalStateException("Valor inesperado: " + tipo_pan);
+        }
+        boolean mas_ingredientes;
+        do {
+            mas_ingredientes = false;
+            System.out.println("¿Que ingrediente le vas a poner a tu waysub?");
+            System.out.println("1. Catsup");
+            System.out.println("2. Cebolla");
+            System.out.println("3. Jamon");
+            System.out.println("4. Jitomate");
+            System.out.println("5. Lechuga");
+            System.out.println("6. Mayonesa");
+            System.out.println("7. Mostaza");
+            System.out.println("8. Pepperoni");
+            int opcion = lee(1, 8);
+            switch (opcion) {
+                case 1:
+                    comida = new Catsup(comida);
+                    break;
+                case 2:
+                    comida = new Cebolla(comida);
+                    break;
+                case 3:
+                    comida = new Jamon(comida);
+                    break;
+                case 4:
+                    comida = new Jitomate(comida);
+                    break;
+                case 5:
+                    comida = new Lechuga(comida);
+                    break;
+                case 6:
+                    comida = new Mayonesa(comida);
+                    break;
+                case 7:
+                    comida = new Mostaza(comida);
+                    break;
+                case 8:
+                    comida = new Pepperoni(comida);
+                    break;
+                default:
+                    throw new IllegalStateException("Valor inesperado: " + opcion);
+            }
+            System.out.println("¿Deseas agregar otro ingrediente?");
+            System.out.println("1. Si");
+            System.out.println("2. No");
+            int confirmacion = lee(1, 2);
+            if (confirmacion == 1) {
+                mas_ingredientes = true;
+            }
+        } while (mas_ingredientes);
+        return comida;
     }
 
     /**
@@ -55,13 +119,9 @@ public class Main {
      * @return
      */
     private static Comida menuPizzasCangrejo() {
-        AdaptadorPizzaCangrejo[] pizzas = new AdaptadorPizzaCangrejo[]{
-            new AdaptadorPizzaCangrejo(new TipoPizza1()),
-            new AdaptadorPizzaCangrejo(new TipoPizza2()),
-            new AdaptadorPizzaCangrejo(new TipoPizza3()),
-            new AdaptadorPizzaCangrejo(new TipoPizza4()),
-            new AdaptadorPizzaCangrejo(new TipoPizza5())
-        };
+        AdaptadorPizzaCangrejo[] pizzas = new AdaptadorPizzaCangrejo[] { new AdaptadorPizzaCangrejo(new TipoPizza1()),
+                new AdaptadorPizzaCangrejo(new TipoPizza2()), new AdaptadorPizzaCangrejo(new TipoPizza3()),
+                new AdaptadorPizzaCangrejo(new TipoPizza4()), new AdaptadorPizzaCangrejo(new TipoPizza5()) };
         System.out.println("-----------------------------------------------------");
         System.out.println("\nBienvenido a las Pizzas de Don Cangrejo!\n\t¿Qué tipo de pizza quieres?");
         System.out.println("Tipo 1: Jamón, queso cheddar y masa delgada \tCosto: " + pizzas[1].getCosto());
@@ -69,7 +129,7 @@ public class Main {
         System.out.println("Tipo 3: Jamón, queso cheddar y masa gruesa \tCosto: " + pizzas[3].getCosto());
         System.out.println("Tipo 4: Pollo, queso manchego y masa delgada \tCosto: " + pizzas[4].getCosto());
         System.out.println("Tipo 5: Salchicha, queso manchego y masa gruesa \tCosto: " + pizzas[5].getCosto());
-       
+
         System.out.println("-----------------------------------------------------");
         System.out.print("Selecciona un tipo  --> ");
         int opcion = lee(1, 5);

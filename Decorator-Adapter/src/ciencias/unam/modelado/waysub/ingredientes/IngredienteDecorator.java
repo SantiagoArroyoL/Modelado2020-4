@@ -2,7 +2,7 @@ package ciencias.unam.modelado.waysub.ingredientes;
 
 import ciencias.unam.modelado.Comida;
 
-public abstract class IngredienteDecorator {
+public abstract class IngredienteDecorator implements Comida {
     protected Comida comida;
     protected double costo;
 
