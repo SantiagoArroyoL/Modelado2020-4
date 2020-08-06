@@ -42,11 +42,13 @@ public class Main {
     private static Comida menuWaySub() {
         System.out.println("-----------------------------------------------------");
         System.out.println("\nBienvenido a WaySub!, ¿Que clase de Baguette vas a querer hoy?");
-        int tipo_pan = lee(1, 3);
         Comida comida = null;
         System.out.println("1. Con Ajo");
         System.out.println("2. Blanco");
         System.out.println("3. Integral");
+        System.out.println("-----------------------------------------------------");
+        System.out.print("Selecciona un tipo  --> ");
+        int tipo_pan = lee(1, 3);
         switch (tipo_pan) {
             case 1:
                 comida = new Ajo();
@@ -105,6 +107,8 @@ public class Main {
             System.out.println("¿Deseas agregar otro ingrediente?");
             System.out.println("1. Si");
             System.out.println("2. No");
+            System.out.println("-----------------------------------------------------");
+            System.out.print("Selecciona un tipo  --> ");
             int confirmacion = lee(1, 2);
             if (confirmacion == 1) {
                 mas_ingredientes = true;
@@ -124,12 +128,11 @@ public class Main {
                 new AdaptadorPizzaCangrejo(new TipoPizza4()), new AdaptadorPizzaCangrejo(new TipoPizza5()) };
         System.out.println("-----------------------------------------------------");
         System.out.println("\nBienvenido a las Pizzas de Don Cangrejo!\n\t¿Qué tipo de pizza quieres?");
-        System.out.println("Tipo 1: Jamón, queso cheddar y masa delgada \tCosto: " + pizzas[1].getCosto());
-        System.out.println("Tipo 2: Salchicha, queso cheddar y masa gruesa \tCosto: " + pizzas[2].getCosto());
-        System.out.println("Tipo 3: Jamón, queso cheddar y masa gruesa \tCosto: " + pizzas[3].getCosto());
-        System.out.println("Tipo 4: Pollo, queso manchego y masa delgada \tCosto: " + pizzas[4].getCosto());
-        System.out.println("Tipo 5: Salchicha, queso manchego y masa gruesa \tCosto: " + pizzas[5].getCosto());
-
+        System.out.println("Tipo 1: Jamón, queso cheddar y masa delgada \tCosto: " + pizzas[0].getCosto());
+        System.out.println("Tipo 2: Salchicha, queso cheddar y masa gruesa \tCosto: " + pizzas[1].getCosto());
+        System.out.println("Tipo 3: Jamón, queso cheddar y masa gruesa \tCosto: " + pizzas[2].getCosto());
+        System.out.println("Tipo 4: Pollo, queso manchego y masa delgada \tCosto: " + pizzas[3].getCosto());
+        System.out.println("Tipo 5: Salchicha, queso manchego y masa gruesa \tCosto: " + pizzas[4].getCosto());
         System.out.println("-----------------------------------------------------");
         System.out.print("Selecciona un tipo  --> ");
         int opcion = lee(1, 5);
@@ -146,10 +149,9 @@ public class Main {
     private static int lee(int cota_inferior, int cota_superior) {
         int opcion = 0;
         boolean validacion = true;
-        Scanner leer = new Scanner(System.in);
         do {
             try {
-                opcion = leer.nextInt();
+                opcion = new Scanner(System.in).nextInt();
             } catch (InputMismatchException ime) {
                 System.out.println("Opción invalida!\nIntroduzca sólo números!");
                 continue;
@@ -159,7 +161,6 @@ public class Main {
                 validacion = false;
             }
         } while (!validacion);
-        leer.close();
         return opcion;
     }
 
