@@ -5,7 +5,7 @@ public class Manchego implements Queso{
     /**
      * Regresa el valor monetario del queso
      *
-     * @return Número flotante (que puede ser entero) que indica el costo del queso
+     * @return Número double (que puede ser entero) que indica el costo del queso
      */
     @Override
     public double getCostoQueso() {

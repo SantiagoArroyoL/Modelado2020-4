@@ -3,7 +3,7 @@ package ciencias.unam.modelado.pizzasDonCangrejo.queso;
 public interface Queso {
     /**
      * Regresa el valor monetario del queso
-     * @return Número flotante (que puede ser entero) que indica el costo del queso
+     * @return Número double (que puede ser entero) que indica el costo del queso
      */
     public double getCostoQueso();
 

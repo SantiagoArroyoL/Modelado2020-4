@@ -3,7 +3,7 @@ package ciencias.unam.modelado.pizzasDonCangrejo.carne;
 public interface Carne {
     /**
      * Regresa el valor monetario de la carne
-     * @return Número flotante (que puede ser entero) que indica el cost de la carne
+     * @return Número double (que puede ser entero) que indica el cost de la carne
      */
     public double getCostoCarne();
 

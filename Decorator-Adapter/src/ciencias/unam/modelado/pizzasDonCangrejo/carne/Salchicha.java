@@ -5,7 +5,7 @@ public class Salchicha implements Carne{
     /**
      * Regresa el valor monetario de la carne
      *
-     * @return Número flotante (que puede ser entero) que indica el cost de la carne
+     * @return Número double (que puede ser entero) que indica el cost de la carne
      */
     @Override
     public double getCostoCarne() {

@@ -5,7 +5,7 @@ public class Gruesa implements Masa{
     /**
      * Regresa el valor monetario de la masa
      *
-     * @return Número flotante (que puede ser entero) que indica el costo de la masa
+     * @return Número double (que puede ser entero) que indica el costo de la masa
      */
     @Override
     public double getCostoMasa() {
