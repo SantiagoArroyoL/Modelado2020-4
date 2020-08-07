@@ -1,5 +1,16 @@
 package ciencias.unam.modelado.waysub.baguette;
 
+import ciencias.unam.modelado.Comida;
+
+/**
+ *
+ * Clase qué indica que el sandwich tendrá pan Blanco
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see Comida
+ * @since 06-08-2020
+ */
 public class Blanco extends Baguette {
 
     /**
