@@ -9,7 +9,7 @@ public class Cheddar implements Queso{
      */
     @Override
     public double getCostoQueso() {
-        return 15;
+        return 17;
     }
 
     /**

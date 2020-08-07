@@ -20,7 +20,7 @@ public class Integral extends Baguette {
      */
     @Override
     public String getDescripcion() {
-        return "Pan Integral "+this.getCosto();
+        return "Pan Integral $"+this.getCosto();
     }
 
     /**

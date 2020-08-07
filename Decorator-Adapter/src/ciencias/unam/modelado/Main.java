@@ -34,10 +34,8 @@ public class Main {
                 throw new IllegalStateException("Valor inesperado: " + opcion);
         }
 
-        String ticket = platillo.getDescripcion();
-
-        System.out.println("Muchas gracias por comprar con nosotros, aquí está tu ticket:\n" + ticket);
-        System.out.println("Costo total: $2" + platillo.getCosto());
+        System.out.println("Muchas gracias por comprar con nosotros, aquí está tu ticket:\n" + platillo.getDescripcion());
+        System.out.println("Costo total: $" + platillo.getCosto());
 
     }// Cierre del método main
 
@@ -49,7 +47,7 @@ public class Main {
         System.out.println("2. Blanco");
         System.out.println("3. Integral");
         System.out.println("-----------------------------------------------------");
-        System.out.print("Selecciona un tipo  --> ");
+        System.out.print("Selecciona una opcion  --> ");
         int tipo_pan = lee(1, 3);
         switch (tipo_pan) {
             case 1:
@@ -77,6 +75,8 @@ public class Main {
             System.out.println("6. Mayonesa");
             System.out.println("7. Mostaza");
             System.out.println("8. Pepperoni");
+            System.out.println("-----------------------------------------------------");
+            System.out.print("Selecciona una opcion  --> ");
             int opcion = lee(1, 8);
             switch (opcion) {
                 case 1:
@@ -133,7 +133,7 @@ public class Main {
         System.out.println("-----------------------------------------------------");
         System.out.print("Selecciona un tipo  --> ");
         int opcion = lee(1, 5);
-        return pizzas[opcion];
+        return pizzas[opcion-1];
     }
 
     /**

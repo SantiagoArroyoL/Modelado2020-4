@@ -31,6 +31,6 @@ public class Catsup extends IngredienteDecorator {
      */
     @Override
     public String getDescripcion() {
-        return comida.getDescripcion()+", Catsup "+this.costo;
+        return comida.getDescripcion()+", Catsup $"+this.costo;
     }
 }

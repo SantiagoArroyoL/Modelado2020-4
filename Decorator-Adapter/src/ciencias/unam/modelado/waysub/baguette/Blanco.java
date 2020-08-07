@@ -20,7 +20,7 @@ public class Blanco extends Baguette {
      */
     @Override
     public String getDescripcion() {
-        return "Pan Blanco "+this.getCosto();
+        return "Pan Blanco $"+this.getCosto();
     }
 
     /**

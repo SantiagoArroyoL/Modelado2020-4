@@ -20,7 +20,7 @@ public class Ajo extends Baguette {
      */
     @Override
     public String getDescripcion() {
-        return "Pan de Ajo "+ this.getCosto();
+        return "Pan de Ajo $"+ this.getCosto();
     }
 
     /**
