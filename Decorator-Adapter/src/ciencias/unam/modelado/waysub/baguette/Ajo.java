@@ -1,5 +1,16 @@
 package ciencias.unam.modelado.waysub.baguette;
 
+import ciencias.unam.modelado.Comida;
+
+/**
+ *
+ * Clase qué indica que el sandwich tendrá pan de Ajo
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see Comida
+ * @since 06-08-2020
+ */
 public class Ajo extends Baguette {
 
     /**
@@ -9,7 +20,7 @@ public class Ajo extends Baguette {
      */
     @Override
     public String getDescripcion() {
-        return "Pan de Ajo "+this.getCosto();
+        return "Pan de Ajo "+ this.getCosto();
     }
 
     /**

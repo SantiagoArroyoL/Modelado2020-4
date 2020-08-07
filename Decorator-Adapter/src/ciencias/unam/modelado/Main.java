@@ -1,11 +1,12 @@
 package ciencias.unam.modelado;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 import ciencias.unam.modelado.pizzasDonCangrejo.tiposPizzas.*;
 import ciencias.unam.modelado.waysub.baguette.*;
 import ciencias.unam.modelado.waysub.ingredientes.*;
+
 
 public class Main {
 
@@ -34,8 +35,9 @@ public class Main {
         }
 
         String ticket = platillo.getDescripcion();
+
         System.out.println("Muchas gracias por comprar con nosotros, aquí está tu ticket:\n" + ticket);
-        System.out.println("Costo total: " + platillo.getCosto());
+        System.out.println("Costo total: $2" + platillo.getCosto());
 
     }// Cierre del método main
 
@@ -117,11 +119,6 @@ public class Main {
         return comida;
     }
 
-    /**
-     * @TODO -- Hay un problema, por ser un método estático todas las pizzas me las
-     *       marca de tipo 1
-     * @return
-     */
     private static Comida menuPizzasCangrejo() {
         AdaptadorPizzaCangrejo[] pizzas = new AdaptadorPizzaCangrejo[] { new AdaptadorPizzaCangrejo(new TipoPizza1()),
                 new AdaptadorPizzaCangrejo(new TipoPizza2()), new AdaptadorPizzaCangrejo(new TipoPizza3()),
@@ -142,18 +139,20 @@ public class Main {
     /**
      * Método que lee hasta que el usuario proporcione una opción válida
      * 
-     * @param x El valor que indica qué estamos leyendo true si es la primera vez
-     *          que leemos - false en caso contrario
+     * @param cota_inferior El mínimo número válido
+     * @param cota_superior El máximo número válido
      * @return El número entero leído por el scanner
      */
     private static int lee(int cota_inferior, int cota_superior) {
         int opcion = 0;
         boolean validacion = true;
         do {
+            validacion = true;
             try {
                 opcion = new Scanner(System.in).nextInt();
             } catch (InputMismatchException ime) {
                 System.out.println("Opción invalida!\nIntroduzca sólo números!");
+                validacion = false;
                 continue;
             }
             if (opcion < cota_inferior || opcion > cota_superior) {

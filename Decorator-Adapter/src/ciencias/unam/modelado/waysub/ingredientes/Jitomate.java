@@ -2,6 +2,14 @@ package ciencias.unam.modelado.waysub.ingredientes;
 
 import ciencias.unam.modelado.Comida;
 
+/**
+ * Ingrediente jitomate
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see IngredienteDecorator
+ * @since 06-08-2020
+ */
 public class Jitomate extends IngredienteDecorator {
     /**
      * Constructor de la clase, llama al super constructor

@@ -2,7 +2,16 @@ package ciencias.unam.modelado.waysub.ingredientes;
 
 import ciencias.unam.modelado.Comida;
 
+/**
+ * Ingrediente cebolla
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see IngredienteDecorator
+ * @since 06-08-2020
+ */
 public class Cebolla extends IngredienteDecorator {
+
     /**
      * Constructor de la clase, llama al super constructor
      * para encapsular al objeto de la clase comida siguiendo
@@ -13,6 +22,7 @@ public class Cebolla extends IngredienteDecorator {
         super(comida);       
         this.costo = 8.7;
     }
+
     /**
      * Regresa las descripción del ingrediente mediante 
      * una cadena que muestra el nombre y el costo
