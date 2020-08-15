@@ -3,7 +3,11 @@ package ciencias.unam.modelado;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import ciencias.unam.modelado.componentes.llantas.OffRoad;
+import ciencias.unam.modelado.componentes.armas.FabricaArma;
+import ciencias.unam.modelado.componentes.blindajes.FabricaBlindaje;
+import ciencias.unam.modelado.componentes.carroceria.FabricaCarroceria;
+import ciencias.unam.modelado.componentes.llantas.FabricaLlanta;
+import ciencias.unam.modelado.componentes.motores.FabricaMotor;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,32 +23,56 @@ public class Main {
         System.out.println("Deseas armar tu carro o ver alguna de las opciones predeterminadas");
         System.out.println("1- Opciones predeterminadas ");
         System.out.println("2- Armar mi carro ");
+        Coche coche = null;
         switch (lee(1,2)) {
             case 1:
-                
+                coche = menuPredifinido(dinero_inicial);
                 break;
             case 2:
-                
+                coche = menuPersonalizado(dinero_inicial);
                 break;
             default:
                 throw new IllegalStateException("Valor inesperado");
         }
     }
 
-    private static Coche menuPersonalizado(){
+    private static Coche menuPersonalizado(double dineroInicial){
         System.out.println("Escoge unas llantas");
+        for (int i = 0; i < FabricaLlanta.catalogo.length; i++) {
+            System.out.println((i+1)+".-"+FabricaLlanta.catalogo[i]);
+        }
+        String llanta = FabricaLlanta.catalogo[lee(1, FabricaLlanta.catalogo.length)-1];
+
+        System.out.println("Escoge una arma");
+        for (int i = 0; i < FabricaArma.catalogo.length; i++) {
+            System.out.println((i+1)+".-"+FabricaArma.catalogo[i]);
+        }
+        String arma = FabricaArma.catalogo[lee(1, FabricaArma.catalogo.length)-1];
         
+        System.out.println("Escoge un blindaje");
+        for (int i = 0; i < FabricaBlindaje.catalogo.length; i++) {
+            System.out.println((i+1)+".-"+FabricaBlindaje.catalogo[i]);
+        }
+        String blindaje = FabricaBlindaje.catalogo[lee(1, FabricaBlindaje.catalogo.length)-1];
+
+        System.out.println("Escoge un carroceria");
+        for (int i = 0; i < FabricaCarroceria.catalogo.length; i++) {
+            System.out.println((i+1)+".-"+FabricaCarroceria.catalogo[i]);
+        }
+        String carroceria = FabricaCarroceria.catalogo[lee(1, FabricaCarroceria.catalogo.length)-1];
+
+        System.out.println("Escoge un motor");
+        for (int i = 0; i < FabricaMotor.catalogo.length; i++) {
+            System.out.println((i+1)+".-"+FabricaMotor.catalogo[i]);
+        }
+        String motor = FabricaMotor.catalogo[lee(1, FabricaMotor.catalogo.length)-1];
+
+        return FabricaCoche.crearCoche(llanta, motor, carroceria, blindaje, arma);
+
     }
 
-    private static Coche menuPredifinido(){
-        Coche[] tipos = new Coche[]{
-            FabricaCoche.crearCoche("Deportivas", "Deportivo", "Deportiva", 
-            "Simple", "Lanzallamas"),
-            FabricaCoche.crearCoche("OffRoad", "Turbo", "Deportiva", 
-            "Tanque", "Lanzallamas"), 
-            FabricaCoche.crearCoche("Oruga", "Turbo", "Deportiva", 
-            "Tanque", "Sierra")
-        };
+    private static Coche menuPredifinido(double dineroInicial){
+        Coche[] tipos = FabricaCoche.getPredefinidos();
         System.out.println("Tenemos "+tipos.length+" opciones para ti: ");
         for (int i = 0; i < tipos.length; i++) {
             System.out.println((i+1)+".-"+tipos[i].getDescripcion());

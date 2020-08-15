@@ -75,9 +75,9 @@ public class Coche {
     public String getDescripcion(){
         String descripcion = "";
         for (Componente componente : componentes.values()) {
-            descripcion += componente.getNombre() + " ";
+            descripcion += componente.getNombre() + ", ";
         }
-        descripcion.trim();
+        descripcion = descripcion.substring(0, descripcion.length() - 2);
         return descripcion;
     }
 }

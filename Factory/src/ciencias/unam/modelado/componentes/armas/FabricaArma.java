@@ -6,6 +6,19 @@ public class FabricaArma {
         "Metralleta", "Sierra"
     };
     public static Arma getArma(String tipo){
-        return null;
+        switch (tipo) {
+            case "Arpones":
+                return new Arpones();
+            case "Canones":
+                return new Canones();
+            case "Lanzallamas":
+                return new Lanzallamas();
+            case "Metralleta":
+                return new Metralleta();
+            case "Sierra":
+                return new Sierra();
+            default:
+                throw new IllegalStateException("Valor inesperado");
+        }
     }
 }

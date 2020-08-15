@@ -15,4 +15,15 @@ public class FabricaCoche {
         FabricaBlindaje.getBlindaje(blindaje),
         FabricaArma.getArma(arma));
     }
+
+    public static Coche[] getPredefinidos(){
+        return new Coche[]{
+            FabricaCoche.crearCoche("Deportivas", "Deportivo", "Deportiva", 
+            "Simple", "Lanzallamas"),
+            FabricaCoche.crearCoche("OffRoad", "Turbo", "Deportiva", 
+            "Tanque", "Lanzallamas"), 
+            FabricaCoche.crearCoche("Oruga", "Turbo", "Deportiva", 
+            "Tanque", "Sierra")
+        };
+    }
 }

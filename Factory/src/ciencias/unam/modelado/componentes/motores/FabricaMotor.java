@@ -5,6 +5,15 @@ public class FabricaMotor {
         "Deportivo", "Diesel", "Turbo"
     };
     public static Motor getMotor(String tipo){
-        return null;
+        switch (tipo) {
+            case "Deportivo":
+                return new Deportivo();
+            case "Diesel":
+                return new Diesel();
+            case "Turbo":
+                return new Turbo();
+            default:
+                throw new IllegalStateException("Valor inesperado");
+        }
     }
 }

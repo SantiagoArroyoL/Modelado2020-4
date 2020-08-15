@@ -5,6 +5,15 @@ public class FabricaBlindaje {
         "Reforzado", "Simple", "Tanque"
     };
     public static Blindaje getBlindaje(String tipo){
-        return null;
+        switch (tipo) {
+            case "Reforzado":
+                return new Reforzado();
+            case "Simple":
+                return new Simple();
+            case "Tanque":
+                return new Tanque();
+            default:
+                throw new IllegalStateException("Valor inesperado");
+        }
     }
 }
