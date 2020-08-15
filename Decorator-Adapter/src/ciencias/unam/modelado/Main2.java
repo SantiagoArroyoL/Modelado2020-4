@@ -8,7 +8,7 @@ import ciencias.unam.modelado.waysub.baguette.*;
 import ciencias.unam.modelado.waysub.ingredientes.*;
 
 
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) {
         int opcion = 0;

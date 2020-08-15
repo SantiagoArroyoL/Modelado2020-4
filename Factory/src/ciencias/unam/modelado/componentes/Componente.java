@@ -7,9 +7,12 @@ public abstract class Componente {
     protected int defensa;
     protected int velocidad;
 
-    public Componente(String nombre, double costo){
+    public Componente(String nombre, double costo, int ataque, int defensa, int velocidad){
         this.nombre = nombre;
-        this.costo = costo; 
+        this.costo = costo;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.velocidad = velocidad;
     }
 
     public double getCosto() {

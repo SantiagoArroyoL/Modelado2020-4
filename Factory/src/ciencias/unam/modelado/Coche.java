@@ -13,13 +13,19 @@ public class Coche {
 
     private HashMap<String, Componente> componentes;
 
+    private String nombre;
+
     public Coche(Llanta llanta, Motor motor, Carroceria carroceria, Blindaje blindaje, Arma arma){
         componentes = new HashMap<>();
-        componentes.put("llanta", llanta);
+        componentes.put("llantas", llanta);
         componentes.put("motor", motor);
         componentes.put("carroceria", carroceria);
         componentes.put("blindaje", blindaje);
         componentes.put("arma", arma);
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Blindaje getBlindaje(){
@@ -41,6 +47,8 @@ public class Coche {
     public Arma getArma(){
         return (Arma) componentes.get("arma");
     }
+
+    public String getNombre() { return nombre;}
 
     public double getCosto(){
         double total = 0;
@@ -74,5 +82,16 @@ public class Coche {
         return total;
     }
 
-
+    public String getDescripcion(){
+        String descripcion = "Llantas: " + getLlantas().getNombre();
+        descripcion += ", Carrocería: " + getCarroceria().getNombre();
+        descripcion += ", Blindaje: " + getBlindaje().getNombre();
+        descripcion += ", Motor: " + getMotor().getNombre();
+        descripcion += ", Arma: " + getArma().getNombre();
+        descripcion += "\nCosto Total: " + getCosto();
+        descripcion += "\nVelocidad: " + getVelocidad();
+        descripcion += "\nDefensa: " + getDefensa();
+        descripcion += "\nAtaque " + getAtaque();
+        return descripcion;
+    }
 }

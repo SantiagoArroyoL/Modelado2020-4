@@ -3,8 +3,7 @@ package ciencias.unam.modelado.componentes.blindajes;
 public class Reforzado extends Blindaje {
 
     public Reforzado() {
-        super("Camion", 300);
-        
+        super("Reforzado", 150,5,8,3);
     }
     
 }
