@@ -10,7 +10,9 @@ import ciencias.unam.modelado.componentes.llantas.Llanta;
 import ciencias.unam.modelado.componentes.motores.Motor;
 
 public class Coche {
+
     private HashMap<String, Componente> componentes;
+
     public Coche(Llanta llanta, Motor motor, Carroceria carroceria, Blindaje blindaje, Arma arma){
         componentes = new HashMap<>();
         componentes.put("llanta", llanta);
