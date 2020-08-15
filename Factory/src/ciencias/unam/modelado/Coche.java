@@ -29,7 +29,7 @@ public class Coche {
     }
 
     public Llanta getLlantas(){
-        return (Llanta) componentes.get("llantas");
+        return (Llanta) componentes.get("llanta");
     }
 
     public Carroceria getCarroceria(){
