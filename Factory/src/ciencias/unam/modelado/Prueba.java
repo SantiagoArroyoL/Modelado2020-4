@@ -9,10 +9,10 @@ import ciencias.unam.modelado.componentes.carroceria.FabricaCarroceria;
 import ciencias.unam.modelado.componentes.llantas.FabricaLlanta;
 import ciencias.unam.modelado.componentes.motores.FabricaMotor;
 
-public class Main {
+public class Prueba {
     public static void main(String[] args) {
         
-        System.out.println("Bienvenido a la tienda de automoviles personalizados MaxMad");
+        System.out.println("Bienvenido a la tienda de automóviles personalizados MaxMad");
         System.out.println("Para poder comprar debes invertir una cantidad inicial,\n si te sobra dinero te lo notificaremos al final.");
         System.out.println("¿Cuanto deseas invertir en tu nuevo coche?");
         System.out.println("1- $1000 ");
@@ -34,50 +34,70 @@ public class Main {
             default:
                 throw new IllegalStateException("Valor inesperado");
         }
+        System.out.println("Aquí tienes una breve descripción de tu coche: \n" + coche.getDescripcion());
+        System.out.println("Ataque: " + coche.getAtaque());
+        System.out.println("Defensa: " + coche.getDefensa());
+        System.out.println("Velocidad: " + coche.getVelocidad());
+        System.out.println("SUERTE EN EL APOCALIPSIS!");
     }
 
     private static Coche menuPersonalizado(double dineroInicial){
+        int seleccion;
         System.out.println("Escoge unas llantas");
         for (int i = 0; i < FabricaLlanta.catalogo.length; i++) {
-            System.out.println((i+1)+".-"+FabricaLlanta.catalogo[i]);
+            System.out.println((i+1)+".-" + FabricaLlanta.catalogo[i] +
+                    " Costo: " + FabricaLlanta.getllanta(FabricaLlanta.catalogo[i]).getCosto());
         }
-        String llanta = FabricaLlanta.catalogo[lee(1, FabricaLlanta.catalogo.length)-1];
+        seleccion = lee(1, FabricaLlanta.catalogo.length)-1;
+        dineroInicial -=  FabricaLlanta.getllanta(FabricaLlanta.catalogo[seleccion]).getCosto();
+        String llanta = FabricaLlanta.catalogo[seleccion];
 
         System.out.println("Escoge una arma");
         for (int i = 0; i < FabricaArma.catalogo.length; i++) {
-            System.out.println((i+1)+".-"+FabricaArma.catalogo[i]);
+            System.out.println((i+1)+".-" + FabricaArma.catalogo[i] +
+                    " Costo: " + FabricaArma.getArma(FabricaArma.catalogo[i]).getCosto());
         }
-        String arma = FabricaArma.catalogo[lee(1, FabricaArma.catalogo.length)-1];
+        seleccion = lee(1, FabricaArma.catalogo.length)-1;
+        dineroInicial -=  FabricaArma.getArma(FabricaArma.catalogo[seleccion]).getCosto();
+        String arma = FabricaArma.catalogo[seleccion];
         
         System.out.println("Escoge un blindaje");
         for (int i = 0; i < FabricaBlindaje.catalogo.length; i++) {
-            System.out.println((i+1)+".-"+FabricaBlindaje.catalogo[i]);
+            System.out.println((i+1)+".-" + FabricaBlindaje.catalogo[i] +
+                    " Costo: " + FabricaBlindaje.getBlindaje(FabricaBlindaje.catalogo[i]).getCosto());
         }
-        String blindaje = FabricaBlindaje.catalogo[lee(1, FabricaBlindaje.catalogo.length)-1];
+        seleccion = lee(1, FabricaBlindaje.catalogo.length)-1;
+        dineroInicial -=  FabricaBlindaje.getBlindaje(FabricaBlindaje.catalogo[seleccion]).getCosto();
+        String blindaje = FabricaBlindaje.catalogo[seleccion];
 
         System.out.println("Escoge un carroceria");
         for (int i = 0; i < FabricaCarroceria.catalogo.length; i++) {
-            System.out.println((i+1)+".-"+FabricaCarroceria.catalogo[i]);
+            System.out.println((i+1)+".-" + FabricaCarroceria.catalogo[i] +
+                    " Costo: " + FabricaCarroceria.getCarroceria(FabricaCarroceria.catalogo[i]).getCosto());
         }
-        String carroceria = FabricaCarroceria.catalogo[lee(1, FabricaCarroceria.catalogo.length)-1];
+        seleccion = lee(1, FabricaCarroceria.catalogo.length)-1;
+        dineroInicial -=  FabricaCarroceria.getCarroceria(FabricaCarroceria.catalogo[seleccion]).getCosto();
+        String carroceria = FabricaCarroceria.catalogo[seleccion];
 
         System.out.println("Escoge un motor");
         for (int i = 0; i < FabricaMotor.catalogo.length; i++) {
-            System.out.println((i+1)+".-"+FabricaMotor.catalogo[i]);
+            System.out.println((i+1)+".-" + FabricaMotor.catalogo[i] +
+                    " Costo: " + FabricaMotor.getMotor(FabricaMotor.catalogo[i]).getCosto());
         }
-        String motor = FabricaMotor.catalogo[lee(1, FabricaMotor.catalogo.length)-1];
-
+        seleccion = lee(1, FabricaMotor.catalogo.length)-1;
+        dineroInicial -=  FabricaMotor.getMotor(FabricaMotor.catalogo[seleccion]).getCosto();
+        String motor = FabricaMotor.catalogo[seleccion];
         return FabricaCoche.crearCoche(llanta, motor, carroceria, blindaje, arma);
-
-    }
+    } //Cierre método menuPersonalizado
 
     private static Coche menuPredifinido(double dineroInicial){
         Coche[] tipos = FabricaCoche.getPredefinidos();
         System.out.println("Tenemos "+tipos.length+" opciones para ti: ");
         for (int i = 0; i < tipos.length; i++) {
-            System.out.println((i+1)+".-"+tipos[i].getDescripcion());
+            System.out.println("\n"+(i+1)+":"+tipos[i].getDescripcion());
         }
-        return tipos[lee(1, tipos.length)];                                             
+        int seleccion = lee(1,tipos.length);
+        return tipos[seleccion-1];
     }
 
 

@@ -4,6 +4,7 @@ public class Deportivo extends Motor {
 
     public Deportivo() {
         super("Deportivo", 3000);
+        this.velocidad = 80;
     }
     
 }

@@ -4,7 +4,7 @@ public class Tanque extends Blindaje {
 
     public Tanque() {
         super("Tanque", 200);
-
+        this.defensa = 300;
     }
     
 }

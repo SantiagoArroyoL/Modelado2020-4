@@ -4,6 +4,7 @@ public class Arpones extends Arma {
 
     public Arpones() {
         super("Arpones", 300);
+        this.ataque = 300;
     }
     
 }
