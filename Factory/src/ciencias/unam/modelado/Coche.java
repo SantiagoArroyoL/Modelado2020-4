@@ -72,5 +72,12 @@ public class Coche {
         return total;
     }
 
-
+    public String getDescripcion(){
+        String descripcion = "";
+        for (Componente componente : componentes.values()) {
+            descripcion += componente.getNombre() + " ";
+        }
+        descripcion.trim();
+        return descripcion;
+    }
 }
