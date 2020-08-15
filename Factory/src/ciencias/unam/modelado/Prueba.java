@@ -17,9 +17,9 @@ public class Prueba {
         System.out.println(
                 "Para poder comprar debes invertir una cantidad inicial,\n si te sobra dinero te lo notificaremos al final.");
         System.out.println("¿Cuanto deseas invertir en tu nuevo coche?");
-        System.out.println("1- $8000 ");
+        System.out.println("1- $3000 ");
         System.out.println("2- $4000 ");
-        System.out.println("3- $3000 ");
+        System.out.println("3- $20000 ");
         ReferenciaNumeroDoble dinero_inicial = new ReferenciaNumeroDoble(new double[] { 3000, 4000, 20000 }[lee(1, 3) - 1]);
 
         System.out.println("Deseas armar tu carro o ver alguna de las opciones predeterminadas");
