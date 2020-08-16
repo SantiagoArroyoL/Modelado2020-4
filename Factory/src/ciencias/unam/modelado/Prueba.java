@@ -8,7 +8,6 @@ import ciencias.unam.modelado.componentes.armas.FabricaArma;
 import ciencias.unam.modelado.componentes.blindajes.FabricaBlindaje;
 import ciencias.unam.modelado.componentes.carroceria.FabricaCarroceria;
 import ciencias.unam.modelado.componentes.llantas.FabricaLlanta;
-import ciencias.unam.modelado.componentes.llantas.Llanta;
 import ciencias.unam.modelado.componentes.motores.FabricaMotor;
 
 public class Prueba {
