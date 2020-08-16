@@ -2,17 +2,21 @@ package ciencias.unam.modelado;
 
 public class ReferenciaNumeroDoble{
 
-    private double value;
+    private double valor;
 
-    public ReferenciaNumeroDoble(double value) {
-        this.value = value;
+    public ReferenciaNumeroDoble(double valor) {
+        this.valor = valor;
     }
 
-    public double getValue() {
-        return this.value;
+    public double getValor() {
+        return this.valor;
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public void restar(double sustraendo) {
+        this.valor = valor-sustraendo;
     }
 }
