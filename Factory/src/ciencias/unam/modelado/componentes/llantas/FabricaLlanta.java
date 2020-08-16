@@ -1,8 +1,8 @@
 package ciencias.unam.modelado.componentes.llantas;
 
 public class FabricaLlanta {
-    public static final Llanta[] catalogo = {
-        new Deportivas(), new OffRoad(), new Oruga(), new Simple()
+    public static final String[] catalogo = {
+        "Deportivas", "OffRoad", "Oruga", "Simple"
     };
     public static Llanta getLlanta(String tipo){
         switch (tipo) {

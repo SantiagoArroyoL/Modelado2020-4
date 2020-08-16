@@ -2,9 +2,9 @@ package ciencias.unam.modelado.componentes.armas;
 
 public class FabricaArma {
 
-    public static final Arma[] catalogo = {
-        new Arpones(), new Canones(), new Lanzallamas(),
-        new Metralleta(),  new Sierra()
+    public static final String[] catalogo = {
+        "Arpones", "Canones", "Lanzallamas",
+        "Metralleta",  "Sierra"
     };
 
     public static Arma getArma(String tipo){

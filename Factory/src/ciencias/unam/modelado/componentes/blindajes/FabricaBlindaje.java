@@ -1,8 +1,8 @@
 package ciencias.unam.modelado.componentes.blindajes;
 
 public class FabricaBlindaje {
-    public static final Blindaje[] catalogo = {
-         new Reforzado(), new Simple(), new Tanque()
+    public static final String[] catalogo = {
+         "Reforzado", "Simple" , "Tanque"
     };
     public static Blindaje getBlindaje(String tipo){
         switch (tipo) {
