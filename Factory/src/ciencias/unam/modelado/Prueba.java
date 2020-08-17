@@ -18,11 +18,11 @@ public class Prueba {
         System.out.println(
                 "Para poder comprar debes invertir una cantidad inicial,\n si te sobra dinero te lo notificaremos al final.");
         System.out.println("¿Cuanto deseas invertir en tu nuevo coche?");
-        System.out.println("1- $1000 ");
-        System.out.println("2- $4000 ");
-        System.out.println("3- $20000 ");
+        System.out.println("1- $1300 ");
+        System.out.println("2- $1900 ");
+        System.out.println("3- $4000 ");
         ReferenciaNumeroDoble dinero_inicial = new ReferenciaNumeroDoble(
-                new double[] { 1000, 4000, 20000 }[lee(1, 3) - 1]);
+                new double[] { 1300, 1900, 4000 }[lee(1, 3) - 1]);
 
         System.out.println("Deseas armar tu carro o ver alguna de las opciones predeterminadas");
         System.out.println("1- Opciones predeterminadas ");
@@ -66,6 +66,8 @@ public class Prueba {
                 System.out.println("1.- Ya probe todas las opciones de llanta");
                 System.out.println("2.- Quiero probar otra opcion de llanta");
                 if (lee(1, 2) == 1) {
+                    System.out.println("--------------------------------------");
+                    System.out.println("Volvemos a empezar desde el inicio");
                     return menuPersonalizado(new ReferenciaNumeroDoble(respaldo));
                 }
             }
@@ -110,6 +112,8 @@ public class Prueba {
                 System.out.println("1.- Ya probe todas las opciones de blindaje");
                 System.out.println("2.- Quiero probar otra opcion de blindaje");
                 if (lee(1, 2) == 1) {
+                    System.out.println("--------------------------------------");
+                    System.out.println("Volvemos a empezar desde el inicio");
                     return menuPersonalizado(new ReferenciaNumeroDoble(respaldo));
                 }
             }
@@ -131,6 +135,8 @@ public class Prueba {
                 System.out.println("1.- Ya probe todas las opciones de carroceria");
                 System.out.println("2.- Quiero probar otra opcion de carroceria");
                 if (lee(1, 2) == 1) {
+                    System.out.println("--------------------------------------");
+                    System.out.println("Volvemos a empezar desde el inicio");
                     return menuPersonalizado(new ReferenciaNumeroDoble(respaldo));
                 }
             }
@@ -152,6 +158,8 @@ public class Prueba {
                 System.out.println("1.- Ya probe todas las opciones de motor");
                 System.out.println("2.- Quiero probar otra opcion de motor");
                 if (lee(1, 2) == 1) {
+                    System.out.println("--------------------------------------");
+                    System.out.println("Volvemos a empezar desde el inicio");
                     return menuPersonalizado(new ReferenciaNumeroDoble(respaldo));
                 }
             }

@@ -38,7 +38,7 @@ public class Coche {
      */
     public Coche(Llanta llanta, Motor motor, Carroceria carroceria, Blindaje blindaje, Arma arma){
         componentes = new HashMap<>();
-        componentes.put("llantas", llanta);
+        componentes.put("llanta", llanta);
         componentes.put("motor", motor);
         componentes.put("carroceria", carroceria);
         componentes.put("blindaje", blindaje);
