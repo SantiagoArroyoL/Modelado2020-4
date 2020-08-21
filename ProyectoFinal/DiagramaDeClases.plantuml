@@ -1,4 +1,5 @@
 @startuml DiagramaClases
+skinparam dpi 300
 skinparam classAttributeIconSize 0
 hide circle
 /'-----Clases y subclases de soldado----'/
@@ -6,27 +7,28 @@ class Soldado {
     -id: int
     -nombre: String
     -vida: int
+    -distancia: int
     -movimiento: Movimiento
     -ataque: Ataque
     -reporte: String
     /'-----Metodos----'/
-    -Soldado(): void
+    -Soldado(distancia: int): void
     +muestraAvance(): void
     +muestraReporte(): void
     +muestraMovimiento(): void
 }
 
 class Infanteria{
-    +Infanteria()
+    +Infanteria(distancia: int)
 }
 
 
 class Caballeria{
-    +Caballeria()
+    +Caballeria(distancia: int)
 }
 
 class Artilleria{
-    +Artilleria()
+    +Artilleria(distancia: int)
 }
 
 Soldado <|-- Infanteria
@@ -95,7 +97,11 @@ class Comandante{
 
 class Enemigo{
     -vida: int
+    -distanciaInicial: int
+    +Enemigo(vida: int, distanciaInicial:int)
     +recibeDano(dano:int): void
+    +getVida(): int
+    +getDistanciaInicial(): int
 }
 
 interface IObservable<<interface>>{
@@ -123,6 +129,7 @@ class ConstructorPelotones{
     -comandante: Comandante
     +ConstructorPelotones(String tipoComandante, Enemigo enemigo): void
     +agregaSoldados(String tipo, numero: int): void
+    -creaSoldado(String tipo): Soldado
     +getInstancia(): Comandante
 }
 
