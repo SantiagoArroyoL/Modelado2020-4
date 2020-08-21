@@ -1,0 +1,153 @@
+@startuml DiagramaClases
+skinparam classAttributeIconSize 0
+hide circle
+/'-----Clases y subclases de soldado----'/
+class Soldado {
+    -id: int
+    -nombre: String
+    -vida: int
+    -movimiento: Movimiento
+    -ataque: Ataque
+    -reporte: String
+    /'-----Metodos----'/
+    -Soldado(): void
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+class Infanteria{
+    +Infanteria()
+}
+
+
+class Caballeria{
+    +Caballeria()
+}
+
+class Artilleria{
+    +Artilleria()
+}
+
+Soldado <|-- Infanteria
+Soldado <|-- Caballeria
+Soldado <|-- Artilleria
+
+/'-----Strategy Movimiento----'/
+interface Movimiento<<interface>>{
+    moverse(): int
+}
+
+class MovimientoLento{
+    moverse(): int
+}
+
+class MovimientoNormal{
+    moverse(): int
+}
+
+class MovimientoRapido{
+    moverse(): int
+}
+Movimiento <|.. MovimientoLento
+Movimiento <|.. MovimientoNormal
+Movimiento <|.. MovimientoRapido
+
+Movimiento --o Soldado
+
+/'-----Strategy Ataque----'/
+interface Ataque<<interface>>{
+    atacar(enemigo: Enemigo): void
+}
+
+class AtaqueMosquete{
+    atacar(enemigo: Enemigo): void
+}
+
+class AtaqueCanon{
+    atacar(enemigo: Enemigo): void
+}
+
+class AtaquePistola{
+    atacar(enemigo: Enemigo): void
+}
+
+Ataque <|.. AtaqueMosquete
+Ataque <|.. AtaqueCanon
+Ataque <|.. AtaquePistola
+
+Soldado o-- Ataque
+
+/'-----Comandante----'/
+
+class Comandante{
+    -peloton: List<Soldados>
+    -enemigo: Enemigo
+    -soldado: Soldado
+    +Comandante(soldado: Soldado)
+    +notificarAtaque(): void
+    +notificarMovimiento(): void
+    +notificarReporte(): void
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+class Enemigo{
+    -vida: int
+    +recibeDano(dano:int): void
+}
+
+interface IObservable<<interface>>{
+    +notificarAtaque(): void
+    +notificarMovimiento(): void
+    +notificarReporte(): void
+}
+
+interface IObservador<<interface>>{
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+Comandante --|> Soldado
+Comandante o-- Soldado
+Comandante ..|> IObservable
+IObservador <|.. Soldado
+Comandante o-- Enemigo
+
+/'-----BuilderPelotones----'/
+
+class ConstructorPelotones{
+    +{static}tipoDeSoldado: String[]  {readOnly}
+    -comandante: Comandante
+    +ConstructorPelotones(String tipoComandante, Enemigo enemigo): void
+    +agregaSoldados(String tipo, numero: int): void
+    +getInstancia(): Comandante
+}
+
+Comandante --o ConstructorPelotones 
+Soldado -->ConstructorPelotones :use
+
+class Usuario{
+    -comandantes: List<Comandantes>
+    +Usuario()
+    +atacar(): void
+    +moverse(): void
+    +reportarse(): void
+    +agregaPeloton(): void
+    -creaEjercito(): List<Comandantes>
+}
+
+class UsuarioConEjercitoKamikase{
+    -creaEjercito: List<Comandantes>
+}
+
+
+class UsuarioConEjercitoExplorador{
+    -creaEjercito: List<Comandantes>
+}
+Usuario <-- Comandante: use 
+Usuario <|-- UsuarioConEjercitoKamikase
+Usuario <|-- UsuarioConEjercitoExplorador 
+@enduml
