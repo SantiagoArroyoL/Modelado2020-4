@@ -1,5 +1,7 @@
 package ciencias.unam.modelado.movimientos;
 
+import ciencias.unam.modelado.soldados.Soldado;
+
 /**
  * Clase encargad e definir los atributos del movimiento lento
  * @author Arroyo Lozano Santiago
@@ -7,14 +9,15 @@ package ciencias.unam.modelado.movimientos;
  * @see Movimiento
  * @since 21-08-2020
  */
-public class MovimientoLento implements Movimiento{
+public class MovimientoCanon implements Movimiento{
     /**
      * Método que indica cuántos pasos y cómo se mueve un sujeto
-     *
+     * @param soldado Es la que tropa que se mueve
      * @return Valor entero de cuánto se mueve el sujeto
      */
     @Override
-    public int moverse() {
-        return 0;
+    public void moverse(Soldado soldado) {
+        System.out.print("Mi nombre es "+soldado.getNombre()+" me muevo lento");
+        soldado.disminuirDistancia(1);
     }
 }

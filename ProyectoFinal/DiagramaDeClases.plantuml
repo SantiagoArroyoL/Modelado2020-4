@@ -5,12 +5,12 @@ hide circle
 /'-----Clases y subclases de soldado----'/
 class Soldado {
     -id: int
-    -nombre: String
-    -vida: int
-    -distancia: int
-    -movimiento: Movimiento
-    -ataque: Ataque
-    -reporte: String
+    #nombre: String
+    #vida: int
+    #distancia: int
+    #movimiento: Movimiento
+    #ataque: Ataque
+    #reporte: String
     /'-----Metodos----'/
     -Soldado(distancia: int): void
     +muestraAvance(): void
@@ -51,9 +51,9 @@ class MovimientoNormal{
 class MovimientoRapido{
     moverse(): int
 }
-Movimiento <|.. MovimientoLento
-Movimiento <|.. MovimientoNormal
-Movimiento <|.. MovimientoRapido
+Movimiento <|.. MovimientoCanon
+Movimiento <|.. MovimientoPie
+Movimiento <|.. Movimientocaballo
 
 Movimiento --o Soldado
 
@@ -125,8 +125,12 @@ Comandante o-- Enemigo
 /'-----BuilderPelotones----'/
 
 class ConstructorPelotones{
-    +{static}tipoDeSoldado: String[]  {readOnly}
+    +{static} ARTILLERIA: String  {readOnly}
+    +{static} CABALLERIA: String  {readOnly}
+    +{static} INFANTERIA: String  {readOnly}
+    +{static} TIPOS: String[]  {readOnly}
     -comandante: Comandante
+    -enemigo: Enemigo
     +ConstructorPelotones(String tipoComandante, Enemigo enemigo): void
     +agregaSoldados(String tipo, numero: int): void
     -creaSoldado(String tipo): Soldado
@@ -139,22 +143,30 @@ Soldado -->ConstructorPelotones :use
 class Usuario{
     -comandantes: List<Comandantes>
     +Usuario()
-    +atacar(): void
-    +moverse(): void
-    +reportarse(): void
+    +ordenaAtaque(): void
+    +ordenaMoverse(): void
+    +ordenaReportarse(): void
     +agregaPeloton(): void
-    -creaEjercito(): List<Comandantes>
+    -creaEjercito(): ArrayList<Comandantes>
 }
 
 class UsuarioConEjercitoKamikase{
-    -creaEjercito: List<Comandantes>
+    +UsuarioConEjercitoKamikase()
+    -creaEjercito: ArrayList<Comandantes>
 }
 
 
 class UsuarioConEjercitoExplorador{
-    -creaEjercito: List<Comandantes>
+    +UsuarioConEjercitoExplorador()
+    -creaEjercito: ArrayList<Comandantes>
+}
+
+class UsuarioConEjercitoDefault{
+    +UsuarioConEjercitoDefault()
+    -creaEjercito: ArrayList<Comandantes>
 }
 Usuario <-- Comandante: use 
 Usuario <|-- UsuarioConEjercitoKamikase
 Usuario <|-- UsuarioConEjercitoExplorador 
+Usuario <|-- UsuarioConEjercitoDefault 
 @enduml

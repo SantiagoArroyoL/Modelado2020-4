@@ -6,4 +6,6 @@ public interface IObservable {
     public void notificarMovimiento();
 
     public void notificarReporte();
+
+    public void registraSoldado(Soldado soldado);
 }

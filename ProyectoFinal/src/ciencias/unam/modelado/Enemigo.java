@@ -10,7 +10,11 @@ public class Enemigo {
     }
 
     public void recibeDano(int dano) {
-        vida -= dano;
+        if(vida-dano < 0){
+            vida = 0;
+        }else{
+            vida -= dano;
+        }
     }
 
     public int getVida() {
