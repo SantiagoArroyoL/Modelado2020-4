@@ -4,28 +4,20 @@ import java.util.ArrayList;
 
 import ciencias.unam.modelado.Enemigo;
 
-public class Comandante extends Soldado implements IObservable{
+public class Comandante extends Soldado implements IObservable {
     private ArrayList<Soldado> peloton;
     private Enemigo enemigo;
-    private Soldado soldado;
 
     public Comandante(Soldado soldado, Enemigo enemigo) {
-        super(soldado.distancia, soldado.getId());
-        this.reporte = soldado.reporte;
-        this.movimiento = soldado.movimiento;
-        this.ataque = soldado.ataque;
-        this.vida = soldado.vida;
-        this.nombre = soldado.nombre;
-
-        this.soldado = soldado;
+        super(soldado);
         this.enemigo = enemigo;
-        peloton =  new ArrayList<>();
+        peloton = new ArrayList<>();
+        peloton.add(this);
     }
 
     @Override
     public void notificarAtaque() {
-        System.out.println("Soy el comandante de nombre "+nombre+ " ataquen soldados");
-        muestraAtaque(enemigo);
+        System.out.println("Soy el comandante de nombre " + nombre + " ataquen soldados");
         for (Soldado soldado_temporal : peloton) {
             soldado_temporal.muestraAtaque(enemigo);
         }
@@ -33,8 +25,7 @@ public class Comandante extends Soldado implements IObservable{
 
     @Override
     public void notificarMovimiento() {
-        System.out.println("Soy el comandante de nombre "+nombre+ " muevanse soldados");
-        muestraMovimiento();
+        System.out.println("Soy el comandante de nombre " + nombre + " muevanse soldados");
         for (Soldado soldado_temporal : peloton) {
             soldado_temporal.muestraMovimiento();
         }
@@ -42,26 +33,10 @@ public class Comandante extends Soldado implements IObservable{
 
     @Override
     public void notificarReporte() {
-        System.out.println("Soy el comandante de nombre "+nombre+ " reportense soldados");
-        muestraReporte();
+        System.out.println("Soy el comandante de nombre " + nombre + " reportense soldados");
         for (Soldado soldado_temporal : peloton) {
             soldado_temporal.muestraReporte();
         }
-    }
-
-    @Override
-    public void muestraAtaque(Enemigo enemigo) {
-        soldado.muestraAtaque(enemigo);
-    }
-
-    @Override
-    public void muestraReporte() {
-        soldado.muestraReporte();
-    }
-
-    @Override
-    public void muestraMovimiento() {
-        soldado.muestraMovimiento();
     }
 
     public Enemigo getEnemigo() {
@@ -69,7 +44,7 @@ public class Comandante extends Soldado implements IObservable{
     }
 
     @Override
-    public void registraSoldado(Soldado soldado){
+    public void registraSoldado(Soldado soldado) {
         this.peloton.add(soldado);
     }
 }

@@ -20,6 +20,16 @@ public class Soldado implements IObservador {
         this.nombre = DiccionarioDeNombres.generaNombre();
     }
 
+    protected Soldado(Soldado soldado){
+        this.id = soldado.id;
+        this.nombre = soldado.nombre;
+        this.vida = soldado.vida;
+        this.distancia = soldado.distancia;
+        this.movimiento = soldado.movimiento;
+        this.ataque = soldado.ataque;
+        this.reporte = soldado.reporte;
+    }
+
     @Override
     public void muestraAtaque(Enemigo enemigo) {
         if(vida > 0){
@@ -77,4 +87,5 @@ public class Soldado implements IObservador {
     public int getDistancia() {
         return distancia;
     }
+
 }
