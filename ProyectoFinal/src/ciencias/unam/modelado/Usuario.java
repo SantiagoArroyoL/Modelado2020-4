@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import ciencias.unam.modelado.soldados.Comandante;
 
+/**
+ * Clase Usuario - encargada del comportamiento de un usuario
+ * Sólo definimos su salud inicial y la distancia a la que se encuentra
+ *
+ * @author Arroyo Lozano Santiago
+ * @author González Domínguez Saúl Fernando
+ * @see Comandante
+ * @since 21-08-2020
+ */
 public class Usuario {
     private List<Comandante> comandantes;
 

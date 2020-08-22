@@ -12,7 +12,6 @@ class Soldado {
     #ataque: Ataque
     #reporte: String
     /'-----Metodos----'/
-    -Soldado(distancia: int): void
     +muestraAvance(): void
     +muestraReporte(): void
     +muestraMovimiento(): void
@@ -51,9 +50,9 @@ class MovimientoNormal{
 class MovimientoRapido{
     moverse(): int
 }
-Movimiento <|.. MovimientoCanon
-Movimiento <|.. MovimientoPie
-Movimiento <|.. Movimientocaballo
+Movimiento <|.. MovimientoLento
+Movimiento <|.. MovimientoNormal
+Movimiento <|.. MovimientoRapido
 
 Movimiento --o Soldado
 
@@ -83,7 +82,7 @@ Soldado o-- Ataque
 /'-----Comandante----'/
 
 class Comandante{
-    -peloton: List<Soldados>
+    -peloton: List<Soldado>
     -enemigo: Enemigo
     -soldado: Soldado
     +Comandante(soldado: Soldado)
@@ -125,19 +124,16 @@ Comandante o-- Enemigo
 /'-----BuilderPelotones----'/
 
 class ConstructorPelotones{
-    +{static} ARTILLERIA: String  {readOnly}
-    +{static} CABALLERIA: String  {readOnly}
-    +{static} INFANTERIA: String  {readOnly}
-    +{static} TIPOS: String[]  {readOnly}
+    +{static} TIPOS: String[]
     -comandante: Comandante
     -enemigo: Enemigo
-    +ConstructorPelotones(String tipoComandante, Enemigo enemigo): void
-    +agregaSoldados(String tipo, numero: int): void
-    -creaSoldado(String tipo): Soldado
+    +ConstructorPelotones(tipoComandante: String, enemigo: Enemigo)
+    +agregaSoldados(tipo: String, numero: int): void
+    -creaSoldado(tipo: String): Soldado
     +getInstancia(): Comandante
 }
 
-Comandante --o ConstructorPelotones 
+Comandante --o ConstructorPelotones
 Soldado -->ConstructorPelotones :use
 
 class Usuario{
@@ -165,8 +161,8 @@ class UsuarioConEjercitoDefault{
     +UsuarioConEjercitoDefault()
     -creaEjercito: ArrayList<Comandantes>
 }
-Usuario <-- Comandante: use 
+Usuario <-- Comandante: use
 Usuario <|-- UsuarioConEjercitoKamikase
-Usuario <|-- UsuarioConEjercitoExplorador 
-Usuario <|-- UsuarioConEjercitoDefault 
+Usuario <|-- UsuarioConEjercitoExplorador
+Usuario <|-- UsuarioConEjercitoDefault
 @enduml
