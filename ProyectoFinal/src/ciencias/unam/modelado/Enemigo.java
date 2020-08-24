@@ -17,6 +17,8 @@ public class Enemigo {
     private int vida;
     /* la distancia a la que se encuentra */
     private int distanciaInicial;
+    /* El daño que hace el enemigo, valor aleatorio entre 1 y 25 */
+    private final int dano = (int) (Math.random() * 25) + 1;
 
     /**
      * Constructor del enemigo - definimos su distancia y vida iniciales
@@ -33,11 +35,7 @@ public class Enemigo {
      * @param dano EL número entero con el daño recibido
      */
     public void recibeDano(int dano) {
-        if(vida-dano < 0){
-            vida = 0;
-        }else{
-            vida -= dano;
-        }
+        this.vida = Math.max(this.vida - dano, 0);
     }
 
     /**
@@ -54,5 +52,21 @@ public class Enemigo {
      */
     public int getDistanciaInicial() {
         return distanciaInicial;
+    }
+
+    /**
+     * Regresa el daño que hace el enemigo
+     * @return número entero de daño
+     */
+    public int getAtaque() {
+        return dano;
+    }
+
+    /**
+     * El enemigo ataca al ejército del usuario
+     * @param usuario El usuario a atacar
+     */
+    public void ataca(Usuario usuario) {
+        usuario.recibeAtaque(dano);
     }
 }

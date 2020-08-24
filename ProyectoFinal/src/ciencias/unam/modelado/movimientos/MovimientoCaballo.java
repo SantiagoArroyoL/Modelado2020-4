@@ -18,7 +18,7 @@ public class MovimientoCaballo implements Movimiento{
      */
     @Override
     public void moverse(Soldado soldado) {
-        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo rápido");
+        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo rápido" + "| VIDA: " + soldado.getVida());
         soldado.disminuirDistancia(3);
     }
 }

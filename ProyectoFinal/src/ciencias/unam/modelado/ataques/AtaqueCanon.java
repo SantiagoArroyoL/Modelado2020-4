@@ -22,7 +22,7 @@ public class AtaqueCanon implements Ataque{
      */
     @Override
     public void atacar(Enemigo enemigo, Soldado soldado) {
-        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con un canon, hago mucho mucho daño, pero tambien pierdo vida");
+        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con un canon, mucho daño, pero tambien pierdo vida" + "| VIDA: " + soldado.getVida());
         enemigo.recibeDano(3);
         soldado.disminuirVida(2);
     }

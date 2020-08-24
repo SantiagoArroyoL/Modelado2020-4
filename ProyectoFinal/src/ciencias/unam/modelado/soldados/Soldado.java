@@ -92,9 +92,9 @@ public abstract class Soldado implements IObservador {
     }
 
     /**
-     * Es un contructor que recibe un soldado
-     * extrae sus caracteristicas y se las coloca a la instancia actual.
-     * @param soldado
+     * Es un constructor copia
+     * extrae sus características y se las coloca a la instancia actual.
+     * @param soldado El soldado a copiar
      */
     protected Soldado(Soldado soldado) {
         this.id = soldado.id;
@@ -120,6 +120,8 @@ public abstract class Soldado implements IObservador {
             } else {
                 System.out.println("Mi nombre es " + nombre + " aun no llego con el enemigo por eso no puedo atacar ");
             }
+        } else {
+            System.out.println("Soy " + nombre + " estoy muerto, no puedo atacar");
         }
     }
 
@@ -129,9 +131,7 @@ public abstract class Soldado implements IObservador {
      */
     @Override
     public void muestraReporte() {
-        if (vida > 0) {
-            System.out.println("Mi nombre es " + nombre + " y me reporto como " + reporte);
-        }
+        System.out.println("Mi nombre es " + nombre + " y me reporto como " + reporte + "| VIDA: " + vida);
     }
 
     /**
@@ -147,6 +147,8 @@ public abstract class Soldado implements IObservador {
             } else {
                 System.out.println("Soy " + nombre + " y ya llegue con el enemigo, no puedo avanzar ");
             }
+        } else {
+            System.out.println("Soy " + nombre + " estoy muerto, no me puedo mover");
         }
     }
 
@@ -167,13 +169,13 @@ public abstract class Soldado implements IObservador {
      * @param distancia La distancia a reducir
      */
     public void disminuirDistancia(int distancia) {
-        this.vida = Math.max(this.vida - distancia, 0);
+        this.distancia = Math.max(this.distancia - distancia, 0);
     }
 
     /**
      * Regresamos el nombre del soldado
      * 
-     * @return El nomre del soldado
+     * @return El nombre del soldado
      */
     public String getNombre() {
         return nombre;
@@ -197,4 +199,12 @@ public abstract class Soldado implements IObservador {
         return distancia;
     }
 
+    /**
+     * Regresamos la vida del soldado
+     *
+     * @return La vida del soldado
+     */
+    public int getVida() {
+        return vida;
+    }
 }

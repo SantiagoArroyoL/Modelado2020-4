@@ -17,7 +17,7 @@ public class MovimientoCanon implements Movimiento{
      */
     @Override
     public void moverse(Soldado soldado) {
-        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo lento");
+        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo lento" + "| VIDA: " + soldado.getVida());
         soldado.disminuirDistancia(1);
     }
 }

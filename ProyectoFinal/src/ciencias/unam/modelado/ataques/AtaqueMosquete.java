@@ -21,7 +21,7 @@ public class AtaqueMosquete implements Ataque{
      */
     @Override
     public void atacar(Enemigo enemigo, Soldado soldado) {
-        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con un mosquete, hago mucho daño");
+        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con un mosquete, hago mucho daño" + "| VIDA: " + soldado.getVida());
         enemigo.recibeDano(3);;
     }
 }

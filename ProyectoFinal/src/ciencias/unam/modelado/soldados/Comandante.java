@@ -26,6 +26,20 @@ public class Comandante extends Soldado implements IObservable{
     private Enemigo enemigo;
 
     /**
+     * Método que revisa que su ejército esté con vida
+     * @return true si al menos un soldado tiene vida - false en caso contrario
+     */
+    public boolean revisaEjercito() {
+        int x = 0;
+        for (Soldado soldado_temporal : peloton) {
+            if (soldado_temporal.getVida() <= 0) {
+                x++;
+            }
+        }
+        return x != peloton.size();
+    }
+    
+    /**
      * Para construir un comandante este primero debe ser un soldado y tener un enemigo bien definido
      * @param soldado El soldado que define qué especialidad, vida, ataque e id tendrá nuestro comandante
      * @param enemigo El enemigo contra el que peleará el comandante
@@ -64,7 +78,7 @@ public class Comandante extends Soldado implements IObservable{
      */
     @Override
     public void notificarReporte() {
-        System.out.println("Soy el comandante de nombre " + nombre + " reportense soldados");
+        System.out.println("Soy el comandante de nombre " + nombre + ", reportense soldados");
         for (Soldado soldado_temporal : peloton) {
             soldado_temporal.muestraReporte();
         }
@@ -85,5 +99,15 @@ public class Comandante extends Soldado implements IObservable{
     @Override
     public void registraSoldado(Soldado soldado) {
         this.peloton.add(soldado);
+    }
+
+    /**
+     * Registramos un ataque recibido
+     * @param vida La vida a disminuir de cada soldado
+     */
+    public void recibeAtaque(int vida) {
+        for (Soldado soldado_temporal : peloton) {
+            soldado_temporal.disminuirVida(vida);
+        }
     }
 }

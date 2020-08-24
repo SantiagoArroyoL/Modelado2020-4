@@ -21,7 +21,7 @@ public class AtaquePistola implements Ataque{
      */
     @Override
     public void atacar(Enemigo enemigo, Soldado soldado) {
-        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con una pistola, hago daño normal");
+        System.out.println("Mi nombre es "+soldado.getNombre()+" ataco con una pistola, hago daño normal" + "| VIDA: " + soldado.getVida());
         enemigo.recibeDano(3);
     }
 }

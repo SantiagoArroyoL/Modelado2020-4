@@ -18,7 +18,7 @@ public class MovimientoPie implements Movimiento{
      */
     @Override
     public void moverse(Soldado soldado) {
-        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo normal");
+        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo normal"+ "| VIDA: " + soldado.getVida());
         soldado.disminuirDistancia(2);
     }
 }
