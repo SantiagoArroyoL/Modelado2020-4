@@ -13,7 +13,6 @@ public interface Movimiento {
     /**
      * Método que indica cuántos pasos y cómo se mueve un sujeto
      * @param soldado Es la que tropa que se mueve
-     * @return Valor entero de cuánto se mueve el sujeto
      */
     public void moverse(Soldado soldado);
 }

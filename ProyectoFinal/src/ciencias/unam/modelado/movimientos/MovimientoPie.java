@@ -11,14 +11,14 @@ import ciencias.unam.modelado.soldados.Soldado;
  * @since 21-08-2020
  */
 public class MovimientoPie implements Movimiento{
+
     /**
      * Método que indica cuántos pasos y cómo se mueve un sujeto
      * @param soldado Es la que tropa que se mueve
-     * @return Valor entero de cuánto se mueve el sujeto
      */
     @Override
     public void moverse(Soldado soldado) {
-        System.out.print("Mi nombre es "+soldado.getNombre()+" me muevo normal");
+        System.out.print("Soy "+soldado.getNombre()+" me estoy moviendo normal");
         soldado.disminuirDistancia(2);
     }
 }

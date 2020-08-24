@@ -11,12 +11,13 @@ import ciencias.unam.modelado.soldados.Soldado;
  * @since 21-08-2020
  */
 public class AtaquePistola implements Ataque{
+
     /**
      * Método para atacar
      * El sujeto que llame a este método planea atacar a un enemigo definido
      *
      * @param enemigo El enemigo que recibirá el ataque
-     * @param nombre Es el nombre de la tropa que ataca
+     * @param soldado  La tropa que ataca
      */
     @Override
     public void atacar(Enemigo enemigo, Soldado soldado) {
