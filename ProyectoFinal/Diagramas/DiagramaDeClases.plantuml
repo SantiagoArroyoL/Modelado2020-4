@@ -116,7 +116,6 @@ interface IObservador<<interface>>{
 }
 
 Comandante --|> Soldado
-Comandante o-- Soldado
 Comandante ..|> IObservable
 IObservador <|.. Soldado
 Comandante o-- Enemigo
