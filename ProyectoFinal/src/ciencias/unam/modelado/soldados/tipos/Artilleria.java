@@ -2,7 +2,6 @@ package ciencias.unam.modelado.soldados.tipos;
 
 import ciencias.unam.modelado.ataques.AtaqueCanon;
 import ciencias.unam.modelado.movimientos.MovimientoCanon;
-import ciencias.unam.modelado.soldados.IObservador;
 import ciencias.unam.modelado.soldados.Soldado;
 
 /**
