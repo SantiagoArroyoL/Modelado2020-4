@@ -11,7 +11,7 @@ import ciencias.unam.modelado.soldados.Comandante;
  * @author Arroyo Lozano Santiago
  * @author González Domínguez Saúl Fernando
  * @see Comandante
- * @since 21-08-2020
+ * @since 21-08-2020 
  */
 public class Usuario {
 
