@@ -1,0 +1,14 @@
+@startuml AtaqueEnemigo
+participant Enemigo order 10
+participant Usuario order 20
+participant Comandante order 30
+participant Soldado order 40
+
+Enemigo -> Usuario : Disminuye tu vida
+
+Usuario -> Comandante : Disminuye tu vida
+
+Comandante -> Soldado : Disminuye tu vida 
+
+Soldado -> Soldado:  Disminuye su propia vida
+@enduml

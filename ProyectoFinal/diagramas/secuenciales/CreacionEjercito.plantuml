@@ -1,0 +1,29 @@
+@startuml Creacion
+actor Jugador order 10
+boundary Prueba order 20
+participant Usuario order 30
+participant UsuarioConEjercitoDefault order 40 
+participant UsuarioConEjercitoExplorador order 50 
+participant UsuarioConEjercitoKamikaze order 60
+
+Prueba -> Jugador : Muestra las opciones de ejercito
+
+Jugador -> Prueba : Selecciona una opcion de ejercito
+
+create Usuario
+Prueba -> Usuario
+
+alt opcion == 1
+    Usuario -> UsuarioConEjercitoExplorador: crea un ejercito
+    Usuario <- UsuarioConEjercitoExplorador: Devuelve un ejercito de tipo explorador
+else opcion == 2
+    Usuario -> UsuarioConEjercitoDefault: crea un ejercito
+    Usuario <- UsuarioConEjercitoDefault: Devuelve un ejercito de tipo default
+else opcion == 3
+    Usuario -> UsuarioConEjercitoKamikaze: crea un ejercito
+    Usuario <- UsuarioConEjercitoKamikaze: Devuelve un ejercito de tipo default
+else
+    Jugador <- Prueba: "<font color=red><b>Lanza un mensaje de error"
+end
+Usuario <- Usuario: Almacena en una variable el ejercito creado
+@enduml

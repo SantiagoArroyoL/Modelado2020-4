@@ -1,0 +1,15 @@
+@startuml AtaqueUsuario
+participant Usuario order 10
+participant Comandante order 20
+participant Soldado order 30
+participant Enemigo order 40
+
+Usuario -> Comandante : Ordena un ataque al enemigo
+
+Comandante -> Soldado : Ordena un ataque al enemigo 
+
+Soldado -> Enemigo: Disminuye tu vida
+
+Enemigo -> Enemigo: Disminuye su propia vida
+
+@enduml

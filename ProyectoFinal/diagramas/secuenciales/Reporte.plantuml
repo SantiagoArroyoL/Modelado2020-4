@@ -1,0 +1,12 @@
+@startuml Reporte
+participant Usuario order 10
+participant Comandante order 20
+participant Soldado order 30
+
+Usuario -> Comandante: Ordena reportarse
+
+Comandante -> Soldado: Ordena reportarse
+
+Soldado -> Soldado: Imprime informacion acerca de estado actual
+
+@enduml

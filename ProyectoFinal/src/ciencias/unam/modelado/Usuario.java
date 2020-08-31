@@ -3,7 +3,6 @@ package ciencias.unam.modelado;
 import java.util.ArrayList;
 import java.util.List;
 import ciencias.unam.modelado.soldados.Comandante;
-import ciencias.unam.modelado.soldados.Soldado;
 
 /**
  * Clase Usuario - encargada del comportamiento de un usuario

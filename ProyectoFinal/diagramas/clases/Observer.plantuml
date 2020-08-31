@@ -1,0 +1,51 @@
+@startuml Observer
+skinparam dpi 400
+skinparam classAttributeIconSize 0
+hide circle
+/'-----Clases y subclases de soldado----'/
+class Soldado {
+    -id: int
+    #nombre: String
+    #vida: int
+    #distancia: int
+    #movimiento: Movimiento
+    #ataque: Ataque
+    #reporte: String
+    /'-----Metodos----'/
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+/'-----Comandante----'/
+
+class Comandante{
+    -peloton: List<Soldado>
+    -enemigo: Enemigo
+    -soldado: Soldado
+    +Comandante(soldado: Soldado)
+    +notificarAtaque(): void
+    +notificarMovimiento(): void
+    +notificarReporte(): void
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+interface IObservable<<interface>>{
+    +notificarAtaque(): void
+    +notificarMovimiento(): void
+    +notificarReporte(): void
+}
+
+interface IObservador<<interface>>{
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+Comandante --|> Soldado
+Comandante ..|> IObservable
+IObservador <|.. Soldado
+Comandante o-- Enemigo
+@enduml

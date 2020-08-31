@@ -1,0 +1,80 @@
+@startuml Builder
+skinparam dpi 400
+skinparam classAttributeIconSize 0
+hide circle
+/'-----Clases y subclases de soldado----'/
+class Soldado {
+    -id: int
+    #nombre: String
+    #vida: int
+    #distancia: int
+    #movimiento: Movimiento
+    #ataque: Ataque
+    #reporte: String
+    /'-----Metodos----'/
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+class Infanteria{
+    +Infanteria(distancia: int)
+}
+
+
+class Caballeria{
+    +Caballeria(distancia: int)
+}
+
+class Artilleria{
+    +Artilleria(distancia: int)
+}
+
+Soldado <|-- Infanteria
+Soldado <|-- Caballeria
+Soldado <|-- Artilleria
+
+
+/'-----Comandante----'/
+
+class Comandante{
+    -peloton: List<Soldado>
+    -enemigo: Enemigo
+    -soldado: Soldado
+    +Comandante(soldado: Soldado)
+    +notificarAtaque(): void
+    +notificarMovimiento(): void
+    +notificarReporte(): void
+    +muestraAvance(): void
+    +muestraReporte(): void
+    +muestraMovimiento(): void
+}
+
+class Enemigo{
+    -vida: int
+    -distanciaInicial: int
+    +Enemigo(vida: int, distanciaInicial:int)
+    +recibeDano(dano:int): void
+    +getVida(): int
+    +getDistanciaInicial(): int
+}
+
+
+Comandante --|> Soldado
+Comandante o-- Enemigo
+
+/'-----BuilderPelotones----'/
+
+class ConstructorPelotones{
+    +{static} TIPOS: String[]
+    -comandante: Comandante
+    -enemigo: Enemigo
+    +ConstructorPelotones(tipoComandante: String, enemigo: Enemigo)
+    +agregaSoldados(tipo: String, numero: int): void
+    -creaSoldado(tipo: String): Soldado
+    +getInstancia(): Comandante
+}
+
+Comandante --o ConstructorPelotones
+Soldado -->ConstructorPelotones :use
+@enduml

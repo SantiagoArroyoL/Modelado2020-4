@@ -48,10 +48,10 @@ public class Prueba {
                 throw new IllegalStateException("Valor inesperado");
         }
         /* Jugamos */
-        System.out.println("Tu enemigo se encuentra a " + distanciaInicial + " de distancia");
+        System.out.println("Tu enemigo se encuentra a " + enemigo.getDistanciaInicial() + " de distancia");
         System.out.println("Hace " + enemigo.getAtaque() + " de daño sin importar la distancia");
         System.out.println("Cada turno hay 50% de probabilidad de que el enemigo ataque");
-        System.out.println("Tiene " + vida + " de vida, tú puedes con él!");
+        System.out.println("Tiene " + enemigo.getVida() + " de vida, tú puedes con él!");
         do {
             System.out.println("Que quieres que haga tu ejército? \n" + MENU);
             switch (lee(1,3)) {

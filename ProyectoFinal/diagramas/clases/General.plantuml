@@ -1,5 +1,5 @@
-@startuml DiagramaClases
-skinparam dpi 300
+@startuml General
+/'skinparam dpi 200'/
 skinparam classAttributeIconSize 0
 hide circle
 /'-----Clases y subclases de soldado----'/
@@ -158,8 +158,8 @@ class UsuarioConEjercitoExplorador{
 
 class UsuarioConEjercitoDefault{
     +UsuarioConEjercitoDefault()
-    -creaEjercito: ArrayList<Comandantes>
-}
+    -creaEjercito: ArrayL ist<Comandantes>
+} 
 Usuario <-- Comandante: use
 Usuario <|-- UsuarioConEjercitoKamikase
 Usuario <|-- UsuarioConEjercitoExplorador

@@ -1,0 +1,12 @@
+@startuml Movimiento
+participant Usuario order 10
+participant Comandante order 20
+participant Soldado order 30
+
+Usuario -> Comandante: Ordena movimiento
+
+Comandante -> Soldado: Ordena movimiento
+
+Soldado -> Soldado: Disminuye la distancia al enemigo
+
+@enduml
