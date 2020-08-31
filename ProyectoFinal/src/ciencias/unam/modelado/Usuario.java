@@ -13,7 +13,7 @@ import ciencias.unam.modelado.soldados.Comandante;
  * @see Comandante
  * @since 21-08-2020
  */
-public class Usuario {
+public abstract class Usuario {
 
     /* Lista que contiene lista de los comandantes de cada pelotón */
     private List<Comandante> comandantes;
