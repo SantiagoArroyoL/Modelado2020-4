@@ -25,14 +25,14 @@ public abstract class Soldado implements IObservador {
     private static class DiccionarioDeNombres {
         /* Arreglo con todos los nombres posibles: */
         private static final String[] nombres = new String[] { "Aarón", "Ander", "Joaquín", "Abel", "Andrés", "Joel",
-                "Abelardo", "Ángel", "Jon", "Abraham", "Aníbal", "Jordi", "Adalberto", "Antonio", "Jorge", "Adam",
+                "Abelardo", "Angel", "Jon", "Abraham", "Aníbal", "Jordi", "Adalberto", "Antonio", "Jorge", "Adam",
                 "Arnau", "José", "Adán", "Arturo", "Jose", "Antonio", "Adiran", "Asier", "Jose", "Luis", "Adolfo",
                 "Augusto", "Jose", "Manuel", "Adrià", "Aurelio", "Jose", "Maria", "Adrián", "Baltasar", "Juan",
                 "Agustín", "Bartolomé", "Blas", "Aimar", "Basilio", "Juan", "Antonio", "Aitor", "Benito", "Boris",
                 "Alano", "Benjamín", "Juan", "Carlos", "Alberto", "Bernardo", "Borja", "Aldo", "Bienvenido", "Brahim",
                 "Aleix", "Blas", "Brais", "Alejandro", "Boris", "Bruno", "Alejo", "Borja", "Calisto", "Alex", "Brahim",
                 "Juan", "José", "Alfonso", "Brais", "Camilo", "Alfredo", "Bruno", "Juan", "Manuel", "Alonso", "Calisto",
-                "Carlos", "Álvaro", "Camilo", "Julio", "Amadeo", "Carlos", "Cayetano", "Amado", "Cayetano", "César",
+                "Carlos", "Alvaro", "Camilo", "Julio", "Amadeo", "Carlos", "Cayetano", "Amado", "Cayetano", "César",
                 "Amando", "César", "Christian", "Ambrosio", "Christian", "Claudio", "Amin", "Claudio", "Clemente",
                 "Anastasio", "Clemente", "Conrado", "Ander", "Conrado", "Constantino", "Constantino", "Francisco",
                 "Javier", "Joel", "Crispín", "Francisco", "José", "Jon", "Cristian", "Gabriel", "Jordi", "Daniel",
@@ -48,11 +48,11 @@ public abstract class Soldado implements IObservador {
                 "Joaquín", "Marcos", "Marcos", "Pau", "Tomás", "Mariano", "Pedro", "Ulises", "Mario", "Pelayo", "Unai",
                 "Marti", "Plácido", "Urbano", "Martín", "Platón", "Valentín", "Mateo", "Pol", "Vicente", "Matías",
                 "Ponce", "Víctor", "Mauricio", "Quintín", "Virgilio", "Maximiliano", "Rafael", "Walter", "Máximo",
-                "Ramiro", "Wen", "Miguel", "Ramón", "Xabier", "Miguel", "Ángel", "Raúl", "Xavier", "Mikel", "Ricardo",
+                "Ramiro", "Wen", "Miguel", "Ramón", "Xabier", "Miguel", "Angel", "Raúl", "Xavier", "Mikel", "Ricardo",
                 "Ximen", "Mohamed", "Roberto", "Yerai", "Moisés", "Rodrigo", "Yeray", "Nabil", "Rogelio", "Yunes",
                 "Narciso", "Román", "Yusef", "Nathan", "Rubén", "Zacarías", "Nicolás", "Salvador", "Zenon", "Noé",
-                "Samuel", "Zoilo", "Octavio", "Santiago", "Oier", "Sebastián", "Omar", "Sergi", "Oriol", "Sergio",
-                "Óscar", "Silvestre", "Pablo", "Simón", "Pancho", "Teodoro" };// Cierre del arreglo de nombres
+                "Samuel", "Zoilo", "Octavio", "Santiago", "Oier", "Sebastián", "Omar", "Sergio", "Oriol", "Sergio",
+                "Oscar", "Silvestre", "Pablo", "Simón", "Pancho", "Teodoro" };// Cierre del arreglo de nombres
 
         /**
          * Método que genera un nombre al azar del arreglo de nombres
